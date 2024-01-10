@@ -125,7 +125,8 @@ Se verificó la funcionalidad de los endpoints localmente y luego se deployó en
 🚀 Link a la API deployada con Render: [LINK](https://proyecto-individual01-mlops-jimenez-v1.onrender.com)
 
 ### 5. Video Explicativo
-La grabación contiene la **explicación** del proyecto,  una muestra la API deployada, todos los endpoints **correctamente** funcionando en Render, next steps y **recomendaciones** al proyecto.
+La grabación contiene la **explicación** del proyecto,  una muestra la API deployada, todos los endpoints **correctamente** funcionando en Render, next steps y **recomendaciones** al proyecto.[LINK](https://drive.google.com/file/d/18tQ-hwa3Lbui2vWvT2FrjM8v_wXEFw1o/view?usp=sharing)
+
 
 ---
 ### Estructura del Repositorio
