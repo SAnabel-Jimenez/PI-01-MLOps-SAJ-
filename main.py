@@ -4,14 +4,12 @@
 # Importar librerias
 from fastapi import FastAPI # Importa la clase FastAPI del modulo fastapi
 import pandas as pd 
-from functions import PlayTimeGenre,UserForGenre,UsersRecommend,UsersWorstDeveloper,sentiment_analysis,recomendacion_juego
+from functions import PlayTimeGenre,UserForGenre,UsersRecommend,UsersWorstDeveloper,sentiment_analysis,recomendacion_juego,recomendacion_usuario
 
 # Se crea una instancia llamada app
 app = FastAPI() # Se crea la aplicacion
 
 
-# http://127.0.0.1:8000   #borrar esta linea
-# http://127.0.0.1:8000 #de ahora
 
 # Se crea las definiciones de los métodos
 # Define un decorador de operaciones de ruta
@@ -69,7 +67,7 @@ def Endpoint2_UserForGenre(genero: str):
 
 
 # ENDPOINT 3
-@app.get("/UsersRecommend/{year}") # Parametro:genero
+@app.get("/UsersRecommend/{year}") # Parametro:anio
 def Endpoint3_UsersRecommend(year: int):
     """
     Ruta para obtener el TOP 3 de juegos más recomendados para el año dado.
@@ -86,7 +84,7 @@ def Endpoint3_UsersRecommend(year: int):
 
 
 # ENDPOINT 4
-@app.get("/UsersWorstDeveloper/{year}") # Parametro:genero
+@app.get("/UsersWorstDeveloper/{year}") # Parametro:anio
 def Endpoint4_UsersWorstDeveloper(year: int):
     """
     Ruta para obtener el TOP 3 de las desarrolladoras menos recomendadas por los usuarios para el año dado.
@@ -103,7 +101,7 @@ def Endpoint4_UsersWorstDeveloper(year: int):
 
 
 # ENDPOINT 5
-@app.get("/sentiment_analysis/{empresa_desarrolladora}") # Parametro:genero
+@app.get("/sentiment_analysis/{empresa_desarrolladora}") # Parametro:empresa
 def Endpoint5_sentiment_analysis(empresa_desarrolladora: str):
     """
     Ruta para obtener las desarrolladoras y la cantidad total de reseñas categorizadas con un análisis de sentimientos.
@@ -119,7 +117,7 @@ def Endpoint5_sentiment_analysis(empresa_desarrolladora: str):
     return result
 
 # ENDPOINT 6
-@app.get("/recomendacion_juego/{item_id}") # Parametro:genero
+@app.get("/recomendacion_juego/{item_id}") # Parametro:item
 def Endpoint6_recomendacion_juego(item_id: int):
     """
     Ruta para obtener los juegos recomendados similares al ingresado.
@@ -131,5 +129,21 @@ def Endpoint6_recomendacion_juego(item_id: int):
         Listado del nombre de los juegos similares para el item_id indicado.
     """
     result = recomendacion_juego(item_id)
+
+    return result
+
+# ENDPOINT 7
+@app.get("/recomendacion_usuario/{user_id}") # Parametro:user
+def Endpoint7_recomendacion_juego(user_id: str):
+    """
+    Ruta para obtener los juegos recomendados similares al ingresado.
+
+    Parametros: 
+        item_id (int): id del producto.
+    
+    Return: 
+        Listado del nombre de los juegos similares para el item_id indicado.
+    """
+    result = recomendacion_usuario(user_id)
 
     return result

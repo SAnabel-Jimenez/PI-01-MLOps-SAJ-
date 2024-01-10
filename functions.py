@@ -123,7 +123,7 @@ def sentiment_analysis(empresa_desarrolladora: str):
 
 
 # ENDPOINT 6
-# MODELO DE APRENDIZAJE AUTOMÁTICO: SISTEMA DE RECOMENDACIÓN
+# MODELO DE APRENDIZAJE AUTOMÁTICO: SISTEMA DE RECOMENDACIÓN 1
 # def recomendacion_juego( id de producto : int ): Ingresando el id de producto, debe devolver una lista con 5 juegos recomendados similares al ingresado.
 
 def recomendacion_juego(item_id: int):
@@ -134,3 +134,17 @@ def recomendacion_juego(item_id: int):
     rpta6= df_6_1['Recommended_Games']
 
     return rpta6
+
+
+
+# ENDPOINT 7
+# MODELO DE APRENDIZAJE AUTOMÁTICO: SISTEMA DE RECOMENDACIÓN 2
+# def recomendacion_usuario( usuario_id : int ): Ingresando el un user id, debe devolver una lista con 5 juegos recomendados recomendados por usuario similares.
+
+def recomendacion_usuario(user_id: str):
+    df7 = pd.read_csv('recomendacion_usuario.csv')
+    #Filtra por user_id
+    df_7_1 = df7[df7['user_id']==user_id]
+    rpta7= df_7_1['Recommended_Games']
+
+    return rpta7
